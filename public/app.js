@@ -427,6 +427,8 @@
 
   function showYear(y) {
     $$(".year", timeline).forEach((b) => b.setAttribute("aria-selected", String(b.dataset.year === y)));
+    const sel = $(`.year[data-year="${y}"]`, timeline);
+    if (sel) timeline.scrollLeft = sel.offsetLeft - timeline.clientWidth / 2 + sel.clientWidth / 2;
     const list = PHOTOS[y] || [];
     gallery.innerHTML = "";
     if (!list.length) {
