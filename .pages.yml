@@ -1,0 +1,151 @@
+# Pages CMS (https://app.pagescms.org): the phone-friendly editor for this site.
+media:
+  input: media
+  output: /media
+
+content:
+  - name: posts
+    label: Blog posts
+    type: collection
+    path: content/posts
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      primary: title
+      fields: [title, date]
+      sort: date
+      order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Date
+        type: date
+        required: true
+      - name: author
+        label: Written by
+        type: string
+      - name: cover
+        label: Cover photo
+        type: image
+        options:
+          path: media/posts
+      - name: photos
+        label: More photos
+        type: image
+        options:
+          path: media/posts
+          multiple: true
+      - name: draft
+        label: Draft (hide from the website)
+        type: boolean
+      - name: body
+        label: Post
+        type: rich-text
+        options:
+          format: markdown
+          path: media/posts
+
+  - name: years
+    label: Photos by year
+    type: collection
+    path: content/years
+    format: json
+    filename: "{primary}.json"
+    view:
+      primary: year
+      fields: [year]
+      sort: year
+      order: desc
+    fields:
+      - name: year
+        label: Year
+        type: number
+        required: true
+      - name: photos
+        label: Photos
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{caption} ({index})"
+        fields:
+          - name: image
+            label: Photo
+            type: image
+          - name: caption
+            label: Caption (optional)
+            type: string
+
+  - name: stories
+    label: Golu doll stories
+    type: collection
+    path: content/stories
+    format: json
+    filename: "{primary}.json"
+    view:
+      primary: title
+      fields: [title, step]
+      sort: step
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: step
+        label: Golu step (1 = top, 3 = bottom)
+        type: number
+      - name: order
+        label: Position on the step (1 = left)
+        type: number
+      - name: doll
+        label: Doll photo (leave empty for a lettered tile)
+        type: image
+        options:
+          path: media/dolls
+      - name: card
+        label: Archana's original card
+        type: image
+        options:
+          path: media/cards
+      - name: bg
+        label: Background colour (e.g. #fbd6e7)
+        type: string
+      - name: ink
+        label: Accent colour (e.g. #4a2a22)
+        type: string
+      - name: quotes
+        label: Quotes at the top
+        type: text
+        list: true
+      - name: intro
+        label: Opening paragraphs
+        type: text
+        list: true
+      - name: items
+        label: Numbered list
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: name
+            type: string
+          - name: tag
+            label: Tag (optional)
+            type: string
+          - name: text
+            type: text
+      - name: subtitle
+        label: Sub-heading
+        type: string
+      - name: body
+        label: Paragraphs
+        type: text
+        list: true
+      - name: closing
+        label: Closing line
+        type: string
+

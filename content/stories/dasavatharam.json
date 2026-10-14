@@ -1,0 +1,68 @@
+{
+  "title": "Dasavatharam",
+  "step": 2,
+  "order": 3,
+  "doll": "",
+  "card": "/media/cards/dasavatharam.jpg",
+  "bg": "#fbf3f6",
+  "ink": "#5a2a22",
+  "quotes": [],
+  "intro": [
+    "In every Yuga (large period of time), Lord Vishnu (God of Preservation) is said to descend down on Earth in a form (avatar) to restore order when the balance of good and evil tilts in the wrong direction. Ten principal avatars have been documented with the last one being awaited at the end of Kali Yuga. The order of the avatars has been found to be close to Darwinian evolution (small beings evolving into more complex beings adapting to the environment based on theory of natural selection)."
+  ],
+  "items": [
+    {
+      "name": "Matsya",
+      "tag": "FISH",
+      "text": "During the first deluge (Pralaya), per divine instructions, King Manu saves the great sages of the world, seeds from every plant and a pair of all animals in a ship. Vishnu appears as a great, big fish with a horn to which Manu ties the ship and escapes the Great Flood. This is very similar to Noah’s Ark described in the Old Testament."
+    },
+    {
+      "name": "Koorma",
+      "tag": "TURTLE",
+      "text": "When Devas (Gods) and Asuras (Demons) had to work together to churn the Ocean of Milk (Kshirsagar) for the nectar that gives immortal life (Amrita), they used a serpant (Vasuki) around a mountain (Mandara) to churn. When heavy Mount Mandara started to sink in the ocean, Vishnu takes the form of a turtle and holds Mandara up to allow churning to complete."
+    },
+    {
+      "name": "Varaha",
+      "tag": "BOAR",
+      "text": "When a demon (Hiranyaksha) carries away a defenseless Mother Earth and hides Her in the cosmos, Vishnu takes the form of a boar to defeat him and carries Mother Earth (depicted as a ball even in those times) back to Her rightful place on His tusks."
+    },
+    {
+      "name": "Narasimha",
+      "tag": "HALF MAN – HALF LION",
+      "text": "Another asura (Hiranyakashipu) terrorizes everyone on Earth including his son, Prahalada (an intense devotee of Vishnu) and punishes anyone who worshipped God. He believes that he is invincible since he has a boon from Lord Brahma (God of Creation) that no man or animal could kill him inside or outside his house in the day or the night. Vishnu takes the forum of Half-Lion Half-Man and pulls Hiranyakashipu to the main threshold of his house at twilight to defeat and kill him thus ridding the world of a terrible evil."
+    },
+    {
+      "name": "Vamana",
+      "tag": "DWARF",
+      "text": "King Mahabali is a just king who conquered the whole world with his military prowess. His ego grew too big for his good and he starts conquering the heavens too. Vishnu descends down to Earth as Vamana (a dwarf) to teach him a lesson. When the king is engaged in divine worship, Vamana asks him for three steps of land so that he can earn a living. The king laughs at Him but agrees. Vamana then proceeds to grow to superhuman size. He covers the Earth with one step and engulfs Heaven with His second step. King Mahabali understands that he is in the presence of divinity and bowed down in deference offering his own head for the third step to complete. Vamana happily placed His feet on the king’s head freeing him from the material world."
+    },
+    {
+      "name": "Parashurama",
+      "tag": "WARRIOR",
+      "text": "When Kshatriyas (Warrior clans) use their brute force and military techniques to colonize the world and its people (traders, farmers, teachers, priests and other clans), Vishnu is born as Parashurama, the son of a sage, who tilts the balance back by destroying many Kshatriya families."
+    },
+    {
+      "name": "Rama",
+      "tag": "PRINCE",
+      "text": "When the world pursues material pleasures, Vishnu is born on Earth as a prince who renounces all material wealth that is rightfully His and spends fourteen years as an ascetic while maintaining His virtuous nature. He is worshipped as the ideal human (Maryaadha Purushotham) who stands as an example to follow."
+    },
+    {
+      "name": "Balarama",
+      "tag": "WRESTLER",
+      "text": "Vishnu or Anantha Sesha, the serpent who serves as a bed and protector of Vishnu is born as the elder brother of Krishna to be a pillar of strength in Krishna’s war against unrighteousness (Adharma). He is described as a strong wrestler who taught both Bhima and Duryodhana (princes of opposing houses fighting for land) the art of fighting with the mace. His weapon of choice is the plough and is celebrated as an agricultural deity."
+    },
+    {
+      "name": "Krishna",
+      "tag": "ADVISOR",
+      "text": "Krishna is born as a nephew of tyrant king, Kamsa who puts His parents in prison and killed every child born to them because a divine voice prophesizes that his sister’s child would kill him. He spends His childhood sheltered in Gokul but grows up to defeat and kill Kamsa. He advises the Pandavas in the epic battle for land that is Mahabharatha. His advice to Prince Arjuna on fighting his own kin for the good of mankind has been immortalized in The Bhagavad Gita (The Song of God) and is regarded as the principal Hindu scripture."
+    },
+    {
+      "name": "Kalki",
+      "tag": "DESTROYER",
+      "text": "It has been prophesized that when the balance between good and evil is disturbed in Kali Yuga (the current age that we live in), Vishnu will arrive on a white horse as a swordsman who will destroy the world restarting the cycle of life."
+    }
+  ],
+  "subtitle": "",
+  "body": [],
+  "closing": ""
+}

@@ -1,0 +1,59 @@
+{
+  "title": "Ashta Lakshmi",
+  "step": 1,
+  "order": 1,
+  "doll": "/media/dolls/ashta-lakshmi.jpg",
+  "card": "/media/cards/ashta-lakshmi.jpg",
+  "bg": "#e2f0e6",
+  "ink": "#0d6b26",
+  "quotes": [],
+  "intro": [
+    "The Almighty Ashta Lakshmis (8 Lakshmis) are manifestations of LAKSHMI, The Goddess who preserves the world, maintains harmony and enables flourishment of all living beings on Earth. Lakshmi is usually called “Goddess/Giver of Wealth”. Wealth includes prosperity, fertility, fortune, health, knowledge, strength, progeny and power (from Wikipedia).",
+    "I interpret These Goddesses as human forms of each type of wealth that cater to people in different occupations so that they can look to Her to guide them to success and as an inspiration or a pinnacle of greatness. She is depicted as a beautiful mother with a benevolent smile who will listen to everyone’s wishes with patience and bestow her blessings. She has many hands and weapons to depict the many things that one must be able to do at the same time (multi-tasking?) to attain success."
+  ],
+  "items": [
+    {
+      "name": "Adi Lakshmi",
+      "tag": "",
+      "text": "Ancient form of Lakshmi who bestows power to calm the human mind and allow them to seek spiritual wealth to find their one true source (Adi)."
+    },
+    {
+      "name": "Dhana Lakshmi",
+      "tag": "",
+      "text": "She is the usual depiction of Lakshmi, The Goddess of Wealth (Dhana) with gold coins falling out of her hands."
+    },
+    {
+      "name": "Dhaanya Lakshmi",
+      "tag": "",
+      "text": "She is the Goddess of agricultural wealth who enables grains (Dhaanya) to flourish in fields to feed all living beings."
+    },
+    {
+      "name": "Gaja Lakshmi",
+      "tag": "",
+      "text": "She enables all animal species to grow in fields and forests to enable agriculture success and species diversity. The elephants (Gaja) around her symbolize magnificence and they shower water on her to cool her heart and gain favor."
+    },
+    {
+      "name": "Santhana Lakshmi",
+      "tag": "",
+      "text": "She is the Goddess who bestows progeny (Santhana) on followers and protects them from evil. She carries a child and sword and shield to protect the child."
+    },
+    {
+      "name": "Veera Lakshmi",
+      "tag": "",
+      "text": "She stands as a guide in battle and situations that require courage, strength and bravery (Veera)."
+    },
+    {
+      "name": "Aishwarya Lakshmi",
+      "tag": "",
+      "text": "She stands as a depiction of all that is beautiful and prosperous (Aishwarya) so that people can humanize success and strive to obtain it."
+    },
+    {
+      "name": "Vijaya Lakshmi",
+      "tag": "",
+      "text": "She is the Goddess of Victory (Vijaya) who carries weapons needed to perform in battle and destroy obstacles and attain success."
+    }
+  ],
+  "subtitle": "",
+  "body": [],
+  "closing": ""
+}

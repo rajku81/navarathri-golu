@@ -1,0 +1,17 @@
+{
+  "name": "navarathri-golu",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/build.mjs && python3 -m http.server 8765 --directory dist",
+    "optimize-images": "node scripts/optimize-images.mjs"
+  },
+  "dependencies": {
+    "js-yaml": "4.1.0",
+    "marked": "14.1.4"
+  },
+  "devDependencies": {
+    "sharp": "0.33.5"
+  }
+}

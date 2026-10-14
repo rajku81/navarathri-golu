@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Navarathri · Our Golu</title>
+  <meta name="description" content="Navarathri and Golu in our home in Columbus, Indiana, since 2005. Words by Archana Rajkumar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Spectral:ital,wght@0,400;0,600;1,400&family=Yeseva+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <nav class="topnav" id="topnav" aria-label="Sections">
+    <a href="#hero" class="topnav__home">Navarathri</a>
+    <div class="topnav__links">
+      <a href="#blog">Archana’s Blog</a>
+      <a href="#posts">Blog Posts</a>
+      <a href="#golu">Golu Stories</a>
+      <a href="#years">Through the Years</a>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="hero">
+    <div class="toran" aria-hidden="true"></div>
+    <div class="hero__inner">
+      <p class="eyebrow">Columbus, Indiana · Golu since 2005</p>
+      <h1 class="hero__title">Navarathri</h1>
+      <p class="hero__sub">“Nine Nights”</p>
+      <ol class="diyas" id="diyas" aria-label="The nine nights"></ol>
+      <p class="diyas__caption" id="diyaCaption" aria-live="polite">&nbsp;</p>
+      <div class="hero__cta">
+        <a class="btn btn--gold" href="#blog">Read Archana’s blog</a>
+        <a class="btn btn--ghost" href="#golu">Visit the Golu</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ BLOG ============ -->
+    <section class="blog" id="blog" aria-labelledby="blogTitle">
+      <div class="blog__head">
+        <h2 class="blog__title" id="blogTitle"></h2>
+        <p class="blog__byline" id="blogByline"></p>
+      </div>
+      <div class="polaroids" id="polaroids"></div>
+      <article class="article" id="article"></article>
+    </section>
+
+    <!-- ============ BLOG POSTS ============ -->
+    <section class="posts" id="posts" aria-labelledby="postsTitle">
+      <div class="section-head">
+        <p class="eyebrow">Navarathri</p>
+        <h2 id="postsTitle">Blog Posts</h2>
+      </div>
+      <div class="post-grid" id="postGrid"></div>
+    </section>
+
+    <!-- ============ GOLU ============ -->
+    <section class="golu" id="golu" aria-labelledby="goluTitle">
+      <div class="section-head section-head--light">
+        <p class="eyebrow">The Golu</p>
+        <h2 id="goluTitle">Golu Stories</h2>
+        <p class="hint">Tap a doll to read Archana’s story</p>
+      </div>
+      <div class="golu__stage">
+        <button class="lamp lamp--left" data-note="lamps" aria-label="Lamp"></button>
+        <div class="steps" id="steps"></div>
+        <button class="lamp lamp--right" data-note="lamps" aria-label="Lamp"></button>
+      </div>
+      <div class="note" id="note" role="status" hidden></div>
+      <ul class="story-index" id="storyIndex" aria-label="All stories"></ul>
+    </section>
+
+    <!-- ============ YEARS ============ -->
+    <section class="years" id="years" aria-labelledby="yearsTitle">
+      <div class="section-head">
+        <p class="eyebrow">Since 2005</p>
+        <h2 id="yearsTitle">Through the Years</h2>
+      </div>
+      <div class="timeline" id="timeline" role="tablist" aria-label="Year"></div>
+      <div class="gallery" id="gallery" role="tabpanel"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="toran toran--footer" aria-hidden="true"></div>
+    <p>Words by Archana Rajkumar · Photographs © Raj Subramanian</p>
+  </footer>
+
+  <!-- ============ STORY READER ============ -->
+  <div class="reader" id="reader" role="dialog" aria-modal="true" aria-labelledby="readerTitle" hidden>
+    <div class="reader__bar">
+      <button class="icon-btn" id="readerPrev" aria-label="Previous story">‹</button>
+      <span class="reader__count" id="readerCount"></span>
+      <button class="icon-btn" id="readerNext" aria-label="Next story">›</button>
+      <button class="icon-btn reader__close" id="readerClose" aria-label="Close">✕</button>
+    </div>
+    <div class="reader__scroll" id="readerScroll">
+      <div class="reader__grid">
+        <aside class="reader__visual">
+          <div class="reader__doll" id="readerDoll"></div>
+          <div class="reader__tools">
+            <button class="btn btn--small" id="readerCard">Archana’s original card</button>
+            <button class="btn btn--small btn--outline" id="readerListen" aria-pressed="false">Listen</button>
+          </div>
+        </aside>
+        <div class="reader__text">
+          <p class="eyebrow" id="readerEyebrow">by Archana</p>
+          <h2 class="reader__title" id="readerTitle"></h2>
+          <div id="readerBody"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo" hidden>
+    <button class="icon-btn lightbox__close" id="lbClose" aria-label="Close">✕</button>
+    <button class="icon-btn lightbox__prev" id="lbPrev" aria-label="Previous photo">‹</button>
+    <figure class="lightbox__fig">
+      <img id="lbImg" alt="">
+      <figcaption id="lbCap"></figcaption>
+    </figure>
+    <button class="icon-btn lightbox__next" id="lbNext" aria-label="Next photo">›</button>
+  </div>
+
+  <script src="/data.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
