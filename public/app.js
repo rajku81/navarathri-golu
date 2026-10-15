@@ -459,6 +459,35 @@
     $("#recipes").hidden = true;
     $$('a[href="#recipes"]').forEach((a) => (a.hidden = true));
   }
+  // Menu card: one line per recipe, jumps to its card
+  if (RECIPES.length) {
+    const menu = $("#recipeMenu");
+    const shortName = (t) => t.replace(/\s*\(.*\)\s*$/, "");
+    const note = (t) => { const m = t.match(/\(([^)]*)\)\s*$/); return m ? m[1] : ""; };
+    menu.innerHTML = `
+      <div class="menu-card__frame">
+        <p class="menu-card__eyebrow">Raj’s sweet kitchen</p>
+        <h3 class="menu-card__title" id="menuTitle">Menu</h3>
+        <p class="menu-card__rule" aria-hidden="true"><span>✦</span></p>
+        <ol class="menu-card__list">${RECIPES.map((r) => `
+          <li><a href="#recipe-${r.slug}">
+            <span class="menu-card__line"><span class="menu-card__name">${esc(shortName(r.title))}</span><span class="menu-card__dots" aria-hidden="true"></span><span class="menu-card__kcal">${r.nutrition && r.nutrition.calories ? esc(r.nutrition.calories.replace(/^about\s+/, "")) : ""}</span></span>
+            <span class="menu-card__sub">${r.titleTamil ? `<span lang="ta">${esc(r.titleTamil)}</span>` : ""}${note(r.title) ? `<span>${esc(note(r.title))}</span>` : ""}</span>
+          </a></li>`).join("")}
+        </ol>
+        <p class="menu-card__foot">Calories per 100 g · tap a sweet to jump to the recipe</p>
+      </div>`;
+    menu.hidden = false;
+    menu.addEventListener("click", (e) => {
+      const a = e.target.closest("a[href^='#recipe-']");
+      if (!a) return;
+      e.preventDefault();
+      const card = $(a.getAttribute("href"));
+      card.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+      card.classList.remove("is-flash"); void card.offsetWidth; card.classList.add("is-flash");
+    });
+  }
+
   RECIPES.forEach((r) => {
     const n = r.nutrition || {};
     const facts = [["Calories", n.calories], ["Protein", n.protein], ["Carbs", n.carbs], ["Fat", n.fat], ["Fiber", n.fiber]].filter(([, v]) => v);
@@ -501,6 +530,11 @@
       const set = (on) => { b.setAttribute("aria-pressed", String(on)); b.classList.toggle("is-done", on); };
       set(!!saved[b.dataset.k]);
       b.addEventListener("click", () => { saved[b.dataset.k] = !saved[b.dataset.k]; set(saved[b.dataset.k]); save(); });
+    });
+    card.insertAdjacentHTML("beforeend", `<a class="recipe__back" href="#recipeMenu">↑ Back to the menu</a>`);
+    $(".recipe__back", card).addEventListener("click", (e) => {
+      e.preventDefault();
+      $("#recipeMenu").scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
     });
     recipeList.append(card);
   });

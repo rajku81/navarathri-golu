@@ -814,3 +814,47 @@ body.no-scroll { overflow: hidden; }
 @media (min-width: 820px) { .recipes-intro { padding: 26px 34px 22px; } }
 .recipe__lead { margin: 10px 20px 4px; padding-left: 14px; border-left: 3px solid var(--marigold); font-family: var(--f-head); font-style: italic; font-size: 21px; line-height: 1.4; color: var(--maroon); }
 @media (min-width: 820px) { .recipe__lead { margin: 12px 44px 6px; max-width: 760px; } }
+
+/* ---------- recipes menu card ---------- */
+.menu-card { max-width: 560px; margin: 0 auto 40px; scroll-margin-top: 80px; }
+.menu-card[hidden] { display: none; }
+.menu-card__frame {
+  position: relative; padding: 30px 22px 22px; text-align: center;
+  background:
+    radial-gradient(circle at 50% 0, rgba(212,160,23,.12), transparent 60%),
+    #fffdf7;
+  border: 2px solid var(--maroon); border-radius: 6px;
+  outline: 1px solid var(--marigold); outline-offset: -9px;
+  box-shadow: 0 24px 50px -34px rgba(11,47,51,.7);
+}
+.menu-card__frame::before, .menu-card__frame::after {
+  content: "❦"; position: absolute; top: 12px; font-size: 18px; color: var(--marigold);
+}
+.menu-card__frame::before { left: 18px; } .menu-card__frame::after { right: 18px; transform: scaleX(-1); }
+.menu-card__eyebrow { margin: 0; font-family: var(--f-head); font-weight: 600; font-size: 13px; letter-spacing: .24em; text-transform: uppercase; color: var(--kumkum); }
+.menu-card__title { margin: 2px 0 0; font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 9vw, 54px); line-height: 1; color: var(--maroon); }
+.menu-card__rule { display: flex; align-items: center; gap: 10px; margin: 10px auto 14px; max-width: 220px; color: var(--marigold); }
+.menu-card__rule::before, .menu-card__rule::after { content: ""; flex: 1; height: 1px; background: var(--marigold); }
+.menu-card__list { list-style: none; margin: 0; padding: 0; text-align: left; }
+.menu-card__list a {
+  display: block; padding: 12px 10px; border-radius: 10px; text-decoration: none; color: var(--ink);
+  transition: background .2s;
+}
+.menu-card__list a:hover, .menu-card__list a:focus-visible { background: rgba(212,160,23,.12); }
+.menu-card__line { display: flex; align-items: baseline; gap: 8px; }
+.menu-card__name { font-family: var(--f-head); font-weight: 600; font-size: 23px; line-height: 1.2; color: var(--maroon); }
+.menu-card__dots { flex: 1; min-width: 20px; border-bottom: 2px dotted rgba(15,82,87,.35); transform: translateY(-5px); }
+.menu-card__kcal { font-family: var(--f-head); font-weight: 600; font-size: 16px; color: var(--kumkum); white-space: nowrap; }
+.menu-card__sub { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 2px; font-size: 15px; color: var(--muted); }
+.menu-card__sub span:last-child:not([lang]) { font-family: var(--f-head); font-style: italic; }
+.menu-card__sub [lang="ta"] { font-family: var(--f-body), "Tamil Sangam MN", "Noto Serif Tamil", serif; }
+.menu-card__list li + li { border-top: 1px solid var(--line); }
+.menu-card__foot { margin: 14px 0 0; font-family: var(--f-head); font-style: italic; font-size: 15px; color: var(--muted); }
+.recipe { scroll-margin-top: 72px; }
+.recipe.is-flash { animation: flash 1.4s ease; }
+.recipe__back {
+  display: block; padding: 14px 20px 18px; text-align: center; border-top: 1px solid var(--line);
+  font-family: var(--f-head); font-weight: 600; font-size: 17px; color: var(--maroon); text-decoration: none;
+}
+.recipe__back:hover { color: var(--kumkum); }
+@media (min-width: 820px) { .menu-card__frame { padding: 36px 40px 26px; } }
