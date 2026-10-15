@@ -8,7 +8,8 @@ const ACTIONS = { publish: "Publish", feature: "Publish + feature on home page",
 export default async function handler(req, res) {
   const q = req.method === "POST" ? (typeof req.body === "string" ? Object.fromEntries(new URLSearchParams(req.body)) : req.body || {}) : req.query || {};
   const action = String(q.a || "");
-  const note = ACTIONS[action] ? verify(String(q.d || ""), action, q.s) : null;
+  let note = null;
+  try { note = ACTIONS[action] ? verify(String(q.d || ""), action, q.s) : null; } catch (e) { console.error(e.message); }
   res.setHeader("Content-Type", "text/html; charset=utf-8");
   res.setHeader("Cache-Control", "no-store");
 
