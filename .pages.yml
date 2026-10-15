@@ -149,3 +149,46 @@ content:
         label: Closing line
         type: string
 
+
+  - name: festival
+    label: This year's Navarathri dates
+    type: file
+    path: content/festival.json
+    format: json
+    fields:
+      - name: year
+        type: number
+      - name: start
+        label: First night (YYYY-MM-DD)
+        type: string
+      - name: end
+        label: Vijayadasami (YYYY-MM-DD)
+        type: string
+      - name: label
+        label: Dates as shown on the site
+        type: string
+      - name: note
+        type: string
+
+  - name: archana
+    label: Meet Archana
+    type: file
+    path: content/archana.json
+    format: json
+    fields:
+      - name: title
+        type: string
+      - name: photo
+        type: image
+        options:
+          path: media
+      - name: photoAlt
+        label: Photo description
+        type: string
+      - name: paragraphs
+        type: text
+        list: true
+      - name: closing
+        type: string
+      - name: signature
+        type: string

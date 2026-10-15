@@ -15,6 +15,7 @@
   };
 
   const BLOG = window.BLOG, STORIES = window.STORIES, PHOTOS = window.PHOTOS || {}, POSTS = window.POSTS || [];
+  const FESTIVAL = window.FESTIVAL, ARCHANA = window.ARCHANA;
   const GROUPS = BLOG.blocks.filter((b) => b.type === "goddess");
 
   // Archana's own sentences, shown when the Kalasam or the lamps are tapped.
@@ -97,7 +98,24 @@
     diyaWrap.append(li);
   }
   const diyas = $$(".diya", diyaWrap);
-  diyas.forEach((d, i) => setTimeout(() => d.classList.add("is-lit"), reduced ? 0 : 500 + i * 320));
+  // During the festival, light one diya per night so far; otherwise light all nine.
+  let litCount = 9;
+  if (FESTIVAL) {
+    const day = (s) => { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const start = day(FESTIVAL.start), end = day(FESTIVAL.end);
+    const n = Math.round((today - start) / 864e5) + 1;
+    const datesEl = $("#heroDates");
+    let status = "";
+    if (today < start) status = "Coming up";
+    else if (n >= 1 && n <= 9) { status = `Tonight is Night ${n}`; litCount = n; }
+    else if (today <= end) status = "Today is Vijayadasami";
+    datesEl.innerHTML = `<span class="hero__year">Navarathri ${esc(FESTIVAL.year)}</span>` +
+      `<span class="hero__range">${esc(FESTIVAL.label)}</span>` +
+      (status ? `<span class="hero__status">${esc(status)}</span>` : "");
+    datesEl.hidden = false;
+  }
+  diyas.forEach((d, i) => { if (i < litCount) setTimeout(() => d.classList.add("is-lit"), reduced ? 0 : 500 + i * 320); });
   diyas.forEach((d) => {
     const show = () => (diyaCaption.textContent = d.getAttribute("aria-label"));
     d.addEventListener("mouseenter", show);
@@ -399,6 +417,15 @@
     speakFrom([$("#readerTitle"), ...$$("[data-say]", reader)]);
   });
 
+  /* ---------------- meet archana ---------------- */
+  if (ARCHANA) {
+    $("#archanaTitle").textContent = ARCHANA.title;
+    const ph = $("#archanaPhoto"); ph.src = ARCHANA.photo; ph.alt = ARCHANA.photoAlt || "Archana";
+    $("#archanaBody").innerHTML = ARCHANA.paragraphs.map((p) => `<p>${esc(p)}</p>`).join("") +
+      (ARCHANA.closing ? `<p class="archana__closing">${esc(ARCHANA.closing)}</p>` : "") +
+      (ARCHANA.signature ? `<p class="archana__sig">${esc(ARCHANA.signature)}</p>` : "");
+  }
+
   /* ---------------- blog posts ---------------- */
   const postsSection = $("#posts");
   if (!POSTS.length) {
@@ -541,7 +568,7 @@
       if (en.isIntersecting) navLinks.forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === `#${en.target.id}`));
     });
   }, { rootMargin: "-50% 0px -50% 0px" });
-  ["blog", "golu", "years"].forEach((id) => sectionObs.observe(document.getElementById(id)));
+  ["blog", "archana", "posts", "golu", "years"].forEach((id) => sectionObs.observe(document.getElementById(id)));
 
   observeReveals();
 

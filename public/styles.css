@@ -631,7 +631,7 @@ body.no-scroll { overflow: hidden; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; }
-  .diya .flame, .diya .glow { opacity: 1; }
+  .diya.is-lit .flame, .diya.is-lit .glow { opacity: 1; }
 }
 
 /* small screens: the story buttons under the steps carry the names */
@@ -668,3 +668,53 @@ body.no-scroll { overflow: hidden; }
 .post-photos button:hover img { transform: scale(1.06); }
 
 [hidden] { display: none !important; }
+
+/* ---------- festival dates (hero) ---------- */
+.hero__dates {
+  display: inline-flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px 14px;
+  margin: -.4em auto 1.6em; padding: 10px 22px;
+  border: 1px solid rgba(242,204,90,.45); border-radius: 999px;
+  background: rgba(11,47,51,.45);
+  font-family: var(--f-head); font-size: 19px; line-height: 1.3; color: #f8eed6;
+}
+.hero__year { font-weight: 600; letter-spacing: .14em; text-transform: uppercase; font-size: 14px; color: var(--turmeric); }
+.hero__status { font-style: italic; color: #f39ac6; }
+.hero__status::before { content: "·"; margin-right: 14px; color: rgba(248,238,214,.5); font-style: normal; }
+.diya:not(.is-lit) svg { opacity: .55; }
+@media (max-width: 560px) {
+  .hero__dates { border-radius: 18px; flex-direction: column; gap: 2px; font-size: 17px; }
+  .hero__status::before { display: none; }
+}
+
+/* ---------- meet archana ---------- */
+.archana {
+  padding: clamp(70px, 10vw, 130px) var(--gutter);
+  background:
+    radial-gradient(ellipse 60% 70% at 15% 40%, rgba(176,24,107,.10), transparent 70%),
+    linear-gradient(180deg, var(--cream), var(--paper));
+  border-top: 1px solid var(--line);
+}
+.archana__inner {
+  max-width: 1080px; margin: 0 auto;
+  display: grid; grid-template-columns: minmax(240px, 400px) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 80px); align-items: center;
+}
+.archana__photo { margin: 0; position: relative; }
+.archana__photo::before {
+  content: ""; position: absolute; inset: 18px -18px -18px 18px;
+  border: 2px solid var(--marigold); border-radius: 220px 220px 18px 18px;
+}
+.archana__photo img {
+  position: relative; width: 100%; aspect-ratio: 4 / 6.2; object-fit: cover; object-position: 60% 30%;
+  border-radius: 220px 220px 18px 18px;
+  box-shadow: 0 30px 60px -30px rgba(11,47,51,.7);
+}
+.archana__text h2 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 64px); line-height: 1.05; margin: 0 0 .5em; color: var(--maroon); }
+.archana__text p { margin: 0 0 1em; }
+.archana__closing { font-family: var(--f-head); font-style: italic; font-weight: 600; font-size: clamp(24px, 3vw, 30px); line-height: 1.3; color: var(--kumkum); margin-top: 1.4em !important; }
+.archana__sig { font-family: var(--f-head); font-weight: 600; font-size: 22px; color: var(--maroon); }
+.archana__sig::before { content: "— "; }
+@media (max-width: 760px) {
+  .archana__inner { grid-template-columns: 1fr; }
+  .archana__photo { max-width: 320px; margin: 0 auto 12px; }
+}

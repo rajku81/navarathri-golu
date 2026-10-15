@@ -82,12 +82,16 @@ const posts = list("content/posts", ".md")
   .filter(Boolean)
   .sort((a, b) => (b.date || "").localeCompare(a.date || ""));
 
+// ---- Festival dates and Meet Archana ----
+const festival = JSON.parse(read("content/festival.json"));
+const archana = JSON.parse(read("content/archana.json"));
+
 // ---- write dist ----
 fs.rmSync(dist, { recursive: true, force: true });
 fs.cpSync(path.join(root, "public"), dist, { recursive: true });
 fs.cpSync(path.join(root, "media"), path.join(dist, "media"), { recursive: true });
 const json = (v) => JSON.stringify(v).replace(/</g, "\\u003c");
 fs.writeFileSync(path.join(dist, "data.js"),
-  `window.BLOG=${json(blog)};\nwindow.STORIES=${json(stories)};\nwindow.PHOTOS=${json(photos)};\nwindow.POSTS=${json(posts)};\n`);
+  `window.BLOG=${json(blog)};\nwindow.STORIES=${json(stories)};\nwindow.PHOTOS=${json(photos)};\nwindow.POSTS=${json(posts)};\nwindow.FESTIVAL=${json(festival)};\nwindow.ARCHANA=${json(archana)};\n`);
 
 console.log(`Built: ${stories.length} stories, ${Object.keys(photos).length} photo years, ${posts.length} posts`);
