@@ -1,0 +1,37 @@
+{
+  "title": "Paal Kesari (milk sweet)",
+  "titleTamil": "பால் கேசரி",
+  "order": 3,
+  "photo": "",
+  "lead": "Paal kesari is something I came across only recently. It's a really creative play on kesari that takes it to the next level, rich enough to be offered as prasadam.",
+  "story": [
+    "Growing up, my mom made kesari for every occasion: a birthday, a celebration, the end of school exams. Kesari has such a fond, comforting spot in my heart, and it comes together so fast. This is the simplest sweet in the whole lot: just milk, sugar, rava and ghee, all in one pan. No roasting, no nuts, nothing fancy. (adapted from Rakesh Raghunathan's milk sweet recipe)"
+  ],
+  "ingredientsTitle": "What you need (use the same cup for everything; the magic number is 4-3-1-1)",
+  "ingredients": [
+    "4 cups milk (paal)",
+    "3 cups sugar",
+    "1 cup rava (ravai)",
+    "1 cup ghee (nei)"
+  ],
+  "stepsTitle": "How I make it",
+  "steps": [
+    "In a pan, mix the milk, sugar and rava with half the ghee. Don't roast the rava. That's what keeps this sweet a beautiful milky white.",
+    "Stir until the sugar dissolves, then put the pan on the stove.",
+    "Cook on a low flame and keep stirring without stopping. It's a real workout for the hands! It comes to a boil, then slowly thickens as the rava swells up.",
+    "Add the rest of the ghee a little at a time, mixing well each time, until it thickens and leaves the sides of the pan.",
+    "Transfer to another dish and let it cool. Serve it hot or at room temperature."
+  ],
+  "tipLabel": "Keep it simple",
+  "tip": "4 milk, 3 sugar, 1 rava, 1 ghee. Skip the dry fruits, saffron and cardamom. The milk and ghee are the whole flavor here.",
+  "closing": "That's it. The paal kesari is ready.",
+  "nutrition": {
+    "basis": "Nutrition (estimate, per 100 g)",
+    "calories": "about 414 kcal",
+    "protein": "4 g",
+    "carbs": "59 g",
+    "fat": "18 g",
+    "fiber": "0.5 g",
+    "yield": "Makes about 1.3 kg, or roughly 26 pieces of 50 g (about 207 kcal each)."
+  }
+}

@@ -468,6 +468,7 @@
         <h3 class="recipe__title" id="recipe-${r.slug}-title">${esc(r.title)}</h3>
         ${r.titleTamil ? `<p class="recipe__tamil" lang="ta">${esc(r.titleTamil)}</p>` : ""}
       </header>
+      ${r.lead ? `<p class="recipe__lead">${esc(r.lead)}</p>` : ""}
       <div class="recipe__story">${r.story.map((p) => `<p>${esc(p)}</p>`).join("")}</div>
       <div class="recipe__grid">
         <div class="recipe__ingredients">

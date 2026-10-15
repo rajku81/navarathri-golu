@@ -812,3 +812,5 @@ body.no-scroll { overflow: hidden; }
 .recipes-intro__sig { margin: .6em 0 0 !important; text-align: right; font-style: italic; font-weight: 600; color: var(--maroon); }
 .recipes-intro__sig::before { content: "— "; }
 @media (min-width: 820px) { .recipes-intro { padding: 26px 34px 22px; } }
+.recipe__lead { margin: 10px 20px 4px; padding-left: 14px; border-left: 3px solid var(--marigold); font-family: var(--f-head); font-style: italic; font-size: 21px; line-height: 1.4; color: var(--maroon); }
+@media (min-width: 820px) { .recipe__lead { margin: 12px 44px 6px; max-width: 760px; } }

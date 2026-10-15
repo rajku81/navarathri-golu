@@ -222,6 +222,9 @@ content:
         type: image
         options:
           path: media/recipes
+      - name: lead
+        label: Lead line (optional, shown in italics above the story)
+        type: text
       - name: story
         label: Story (one box per paragraph)
         type: text
