@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Testimonials · Our Golu</title>
+  <meta name="description" content="Notes, memories and well wishes from guests who visited our Golu.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Spectral:ital,wght@0,400;0,600;1,400&family=Yeseva+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="page-testimonials">
+
+  <nav class="topnav is-visible" aria-label="Sections">
+    <a href="/" class="topnav__home">Navarathri</a>
+    <div class="topnav__links">
+      <a href="/#blog">Archana’s Blog</a>
+      <a href="/#golu">Golu Stories</a>
+      <a href="/#recipes">Recipes</a>
+      <a href="/#years">Through the Years</a>
+      <a href="/testimonials" class="is-active" aria-current="page">Testimonials</a>
+    </div>
+  </nav>
+
+  <header class="t-hero">
+    <p class="eyebrow">From our Golu guests</p>
+    <h1>Testimonials</h1>
+    <p class="t-hero__sub">Visited our Golu? Leave us a note, a memory or a wish.</p>
+  </header>
+
+  <main class="t-main">
+    <section class="t-form-card" aria-labelledby="formTitle">
+      <h2 id="formTitle">Leave a note</h2>
+      <form id="noteForm" novalidate>
+        <label class="t-field">
+          <span>Your name</span>
+          <input name="name" id="tName" maxlength="80" autocomplete="name" required placeholder="e.g. Lakshmi & family">
+        </label>
+        <label class="t-field">
+          <span>Your note</span>
+          <textarea name="message" id="tMessage" maxlength="1500" rows="5" required placeholder="A memory, a wish, a favourite doll…"></textarea>
+          <small class="t-count" id="tCount">0 / 1500</small>
+        </label>
+        <!-- left empty by people; bots tend to fill it -->
+        <label class="t-trap" aria-hidden="true">Website <input name="website" tabindex="-1" autocomplete="off"></label>
+        <button class="btn btn--gold" type="submit" id="tSubmit">Send my note</button>
+        <p class="t-status" id="tStatus" role="status" aria-live="polite"></p>
+        <p class="t-small">Raj and Archana read every note before it appears here.</p>
+      </form>
+    </section>
+
+    <section aria-labelledby="listTitle">
+      <h2 class="t-list-title" id="listTitle">Kind words</h2>
+      <div class="t-grid" id="tList"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p><a href="/">← Back to Navarathri · Our Golu</a></p>
+  </footer>
+
+  <script src="/data.js"></script>
+  <script src="/testimonials.js"></script>
+</body>
+</html>

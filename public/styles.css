@@ -882,3 +882,56 @@ body.no-scroll { overflow: hidden; }
   .hero__dates { padding: 12px 16px 14px; }
   .hero__status + .hero__color::before { display: none; }
 }
+
+/* ---------- testimonials ---------- */
+.t-card {
+  margin: 0; padding: 22px 22px 18px; border-radius: 18px; background: #fff;
+  border: 1px solid var(--line); box-shadow: 0 18px 36px -30px rgba(11,47,51,.6);
+  display: grid; gap: 14px; align-content: space-between; position: relative;
+}
+.t-card::before { content: "“"; position: absolute; top: -6px; left: 16px; font-family: var(--f-display); font-size: 64px; line-height: 1; color: var(--marigold); }
+.t-card blockquote { margin: 18px 0 0; font-family: var(--f-head); font-weight: 500; font-size: 21px; line-height: 1.45; color: var(--ink); }
+.t-card figcaption { display: grid; gap: 2px; border-top: 1px solid var(--line); padding-top: 10px; }
+.t-card__name { font-family: var(--f-head); font-weight: 600; font-size: 19px; color: var(--maroon); }
+.t-card__date { font-size: 14px; color: var(--muted); }
+.t-grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+.t-empty { grid-column: 1 / -1; text-align: center; font-family: var(--f-head); font-style: italic; font-size: 20px; color: var(--muted); padding: 30px 10px; border: 2px dashed var(--line); border-radius: 16px; }
+.t-empty--dark { color: #d9e6e2; border-color: rgba(248,238,214,.25); }
+
+.kind-words { padding: clamp(64px, 9vw, 110px) var(--gutter); background: linear-gradient(180deg, var(--night-2), var(--night)); }
+.t-grid--home { max-width: 1100px; margin: 0 auto; }
+.kind-words__cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 30px; }
+
+.page-testimonials { background: var(--cream); }
+.t-hero {
+  padding: 110px var(--gutter) 60px; text-align: center; color: #f8eed6;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 110%, rgba(176,24,107,.4), transparent 70%),
+    linear-gradient(180deg, var(--night), var(--night-2));
+}
+.t-hero .eyebrow { color: var(--turmeric); }
+.t-hero h1 { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: clamp(48px, 11vw, 96px); line-height: 1; background: linear-gradient(180deg, #fff3d0 10%, var(--turmeric) 60%, var(--marigold)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.t-hero__sub { margin: .6em 0 0; font-family: var(--f-head); font-style: italic; font-size: clamp(20px, 3vw, 26px); color: #f6e3ad; }
+.t-main { max-width: 1100px; margin: -34px auto 0; padding: 0 var(--gutter) 80px; display: grid; gap: 48px; position: relative; }
+.t-form-card { max-width: 620px; width: 100%; margin: 0 auto; background: #fff; border-radius: 20px; padding: 26px 22px 22px; border-top: 6px solid var(--kumkum); box-shadow: 0 30px 60px -36px rgba(11,47,51,.7); }
+.t-form-card h2, .t-list-title { margin: 0 0 14px; font-family: var(--f-display); font-weight: 400; font-size: clamp(30px, 5vw, 40px); color: var(--maroon); }
+.t-list-title { text-align: center; margin-bottom: 22px; }
+.t-field { display: grid; gap: 6px; margin-bottom: 16px; position: relative; }
+.t-field span { font-family: var(--f-head); font-weight: 600; font-size: 18px; color: var(--maroon); }
+.t-field input, .t-field textarea {
+  width: 100%; font: 18px/1.5 var(--f-body); color: var(--ink);
+  padding: 12px 14px; border: 1.5px solid var(--line); border-radius: 12px; background: var(--paper);
+  transition: border-color .2s, box-shadow .2s;
+}
+.t-field textarea { resize: vertical; min-height: 140px; }
+.t-field input:focus, .t-field textarea:focus { outline: none; border-color: var(--maroon); box-shadow: 0 0 0 3px rgba(15,82,87,.15); }
+.t-count { justify-self: end; font-size: 13px; color: var(--muted); }
+.t-trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.t-form-card .btn { width: 100%; }
+.t-form-card .btn:disabled { opacity: .6; cursor: wait; transform: none; }
+.t-status { min-height: 1.4em; margin: 12px 0 0; font-size: 17px; }
+.t-status.is-ok { color: var(--maroon); font-family: var(--f-head); font-weight: 600; font-size: 19px; }
+.t-status.is-error { color: var(--kumkum); }
+.t-small { margin: 6px 0 0; font-size: 14px; color: var(--muted); text-align: center; }
+.page-testimonials .footer a { color: var(--turmeric); text-decoration: none; }
+@media (min-width: 820px) { .t-form-card { padding: 34px 38px 28px; } }

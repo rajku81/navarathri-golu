@@ -298,3 +298,33 @@ content:
         list: true
       - name: signature
         type: string
+
+  - name: testimonials
+    label: Testimonials
+    type: collection
+    path: content/testimonials
+    format: json
+    view:
+      primary: name
+      fields: [name, publishedAt, featured]
+      sort: publishedAt
+      order: desc
+    fields:
+      - name: name
+        type: string
+        required: true
+      - name: message
+        type: text
+        required: true
+      - name: featured
+        label: Show on the home page
+        type: boolean
+      - name: hidden
+        label: Hide from the website
+        type: boolean
+      - name: submittedAt
+        type: string
+        hidden: true
+      - name: publishedAt
+        label: Published (date shown on the site)
+        type: string

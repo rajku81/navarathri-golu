@@ -547,6 +547,19 @@
     recipeList.append(card);
   });
 
+  /* ---------------- kind words (featured testimonials) ---------------- */
+  {
+    const all = window.TESTIMONIALS || [];
+    const featured = all.filter((t) => t.featured);
+    const show = (featured.length ? featured : all).slice(0, 3);
+    const fmt = (iso) => new Date(iso).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+    $("#kwList").innerHTML = show.length
+      ? show.map((t) => `<figure class="t-card reveal"><blockquote>${esc(t.message).replace(/\n/g, "<br>")}</blockquote>
+          <figcaption><span class="t-card__name">${esc(t.name)}</span><span class="t-card__date">Shared ${esc(fmt(t.publishedAt))}</span></figcaption></figure>`).join("")
+      : `<p class="t-empty t-empty--dark">Visited our Golu? Be the first to leave a note.</p>`;
+    $("#kwAll").hidden = all.length <= show.length;
+  }
+
   /* ---------------- through the years ---------------- */
   const timeline = $("#timeline"), gallery = $("#gallery");
   const lastYear = Math.max(new Date().getFullYear(), ...Object.keys(PHOTOS).map(Number));
