@@ -267,3 +267,15 @@ content:
           - name: yield
             label: Makes / servings
             type: text
+
+  - name: recipesIntro
+    label: Recipes intro note
+    type: file
+    path: content/recipes-intro.json
+    format: json
+    fields:
+      - name: paragraphs
+        type: text
+        list: true
+      - name: signature
+        type: string

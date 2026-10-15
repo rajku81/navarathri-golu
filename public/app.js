@@ -447,6 +447,14 @@
 
   /* ---------------- recipes ---------------- */
   const recipeList = $("#recipeList");
+  const RI = window.RECIPES_INTRO;
+  if (RI && (RI.paragraphs || []).length) {
+    const box = $("#recipesIntro");
+    box.innerHTML = `<span class="recipes-intro__icon" aria-hidden="true">🍮</span>` +
+      RI.paragraphs.map((p) => `<p>${esc(p)}</p>`).join("") +
+      (RI.signature ? `<p class="recipes-intro__sig">${esc(RI.signature)}</p>` : "");
+    box.hidden = false;
+  }
   if (!RECIPES.length) {
     $("#recipes").hidden = true;
     $$('a[href="#recipes"]').forEach((a) => (a.hidden = true));
