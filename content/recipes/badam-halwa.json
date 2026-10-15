@@ -1,0 +1,43 @@
+{
+  "title": "Badam Halwa (almond halwa)",
+  "titleTamil": "பாதாம் அல்வா",
+  "order": 4,
+  "photo": "",
+  "story": [
+    "Badam halwa is the crown jewel of Indian sweets. My love for it really comes from my kids. Arjun and Janvi both love badam halwa, and they ask me to make it all the time. Badam halwa always feels like a special-occasion sweet. Almond flour saves all the soaking and peeling of whole almonds, and it still comes out rich, smooth and glossy."
+  ],
+  "ingredientsTitle": "What you need (serves 4)",
+  "ingredients": [
+    "1 cup (130 g) fine blanched almond flour (badam maavu)",
+    "4 tbsp ghee (nei)",
+    "3 tbsp sliced almonds",
+    "1¼ cups milk (paal)",
+    "2 pinches saffron (kungumappoo)",
+    "¾ cup (100 g) powdered sugar",
+    "½ tsp cardamom powder (elakkai podi)"
+  ],
+  "stepsTitle": "How I make it",
+  "steps": [
+    "Soak the saffron in 2 tbsp of warm milk.",
+    "Heat 3 tbsp of ghee and roast the almond slices for about 2 minutes, until crisp. Keep some aside for garnish.",
+    "Add the almond flour and fry it in the ghee on a low flame for 4 to 5 minutes.",
+    "Pour in the milk, warm if you can so it doesn't lump, and mix well.",
+    "Keep stirring. In about 10 minutes the flour soaks up the milk and thickens. Add the saffron milk and cardamom.",
+    "Keep stirring about 20 more minutes until it's a thick paste. Watch the bottom, because it likes to stick.",
+    "Add the sugar. It'll go thin again, and that's normal.",
+    "Keep stirring until it gathers together and leaves the sides of the pan, smooth and glossy. Add a teaspoon of ghee for shine and switch off.",
+    "Top with the reserved almonds and serve warm."
+  ],
+  "tipLabel": "Tip",
+  "tip": "Use fine almond flour, not almond meal, and a non-stick pan helps a lot. With whole milk, use ¾ cup milk plus ½ cup water instead.",
+  "closing": "That's it. The badam halwa is ready.",
+  "nutrition": {
+    "basis": "Nutrition (estimate, per 100 g)",
+    "calories": "about 429 kcal",
+    "protein": "10 g",
+    "carbs": "33 g",
+    "fat": "31 g",
+    "fiber": "3.6 g",
+    "yield": "Makes about 450 g, so 4 servings of about 113 g (about 483 kcal each)."
+  }
+}
