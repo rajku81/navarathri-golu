@@ -2,6 +2,9 @@
 media:
   input: media
   output: /media
+  # iPhones name photos IMG_1234.JPG / .HEIC; list upper-case endings so they aren't rejected.
+  extensions: [jpg, jpeg, png, webp, heic, heif, JPG, JPEG, PNG, WEBP, HEIC, HEIF]
+  rename: safe
 
 content:
   - name: posts
