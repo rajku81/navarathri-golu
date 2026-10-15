@@ -935,3 +935,9 @@ body.no-scroll { overflow: hidden; }
 .t-small { margin: 6px 0 0; font-size: 14px; color: var(--muted); text-align: center; }
 .page-testimonials .footer a { color: var(--turmeric); text-decoration: none; }
 @media (min-width: 820px) { .t-form-card { padding: 34px 38px 28px; } }
+
+/* story reader: Archana's asides, emphasis, source link */
+.reader__aside { font-style: italic; padding-left: 16px; border-left: 3px solid var(--ink-accent); color: var(--ink); opacity: .92; }
+.reader__strong { font-weight: 600; }
+.reader__source { margin-top: 2em; font-size: 15px; }
+.reader__source a { color: var(--ink-accent); }

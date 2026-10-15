@@ -32,7 +32,7 @@ const stories = list("content/stories", ".json")
       slug: slugOf(f),
       title: s.title,
       step: Math.min(3, Math.max(1, Number(s.step) || 3)),
-      order: Number(s.order) || 99,
+      order: Number.isFinite(Number(s.order)) && s.order !== "" ? Number(s.order) : 99,
       doll: s.doll || null,
       card: s.card || null,
       bg: s.bg || "#fff7ea",
@@ -42,7 +42,11 @@ const stories = list("content/stories", ".json")
       list: items.length ? { items } : null,
       subtitle: s.subtitle || "",
       body: clean(s.body),
-      closing: s.closing || ""
+      closing: s.closing || "",
+      tileMark: s.tileMark || "",
+      tileNote: s.tileNote || "",
+      sourceLabel: s.sourceLabel || "",
+      sourceUrl: s.sourceUrl || ""
     };
   })
   .sort((a, b) => a.step - b.step || a.order - b.order);

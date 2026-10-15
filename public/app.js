@@ -197,7 +197,16 @@
   const stepsEl = $("#steps");
   const dollAspect = {};
 
-  const lettersTile = (s) => `<b>${s.list.items.length}</b><span>${esc(s.title)}</span><em>${s.list.items.map((i) => esc(i.name)).join(" · ")}</em>`;
+  const lettersTile = (s) => s.list
+    ? `<b>${s.list.items.length}</b><span>${esc(s.title)}</span><em>${s.list.items.map((i) => esc(i.name)).join(" · ")}</em>`
+    : `<b>${esc(s.tileMark || s.title.charAt(0))}</b><span>${esc(s.title)}</span>${s.tileNote ? `<em>${esc(s.tileNote)}</em>` : ""}`;
+  // _whole paragraph_ = Archana's aside in italics; **whole paragraph** = emphasis
+  const para = (p) => {
+    const m = String(p).match(/^_([\s\S]+)_$/), b = String(p).match(/^\*\*([\s\S]+)\*\*$/);
+    if (m) return `<p class="reader__aside" data-say>${esc(m[1])}</p>`;
+    if (b) return `<p class="reader__strong" data-say>${esc(b[1])}</p>`;
+    return `<p data-say>${esc(p)}</p>`;
+  };
 
   const loadAspect = (src) => new Promise((res) => {
     const im = new Image();
@@ -279,7 +288,7 @@
 
     let html = "";
     if (s.quotes && s.quotes.length) html += `<div class="reader__quotes">${s.quotes.map((q) => `<p data-say>${esc(q)}</p>`).join("")}</div>`;
-    (s.intro || []).forEach((p) => (html += `<p data-say>${esc(p)}</p>`));
+    (s.intro || []).forEach((p) => (html += para(p)));
     if (s.list) {
       html += `<div class="chips" role="list">${s.list.items.map((it, k) =>
         `<button class="chip" role="listitem" data-k="${k}"><b>${k + 1}</b>${esc(it.name)}</button>`).join("")}</div>`;
@@ -287,8 +296,9 @@
         `<li class="item" id="item-${k}" data-say><h4>${esc(it.name)}${it.tag ? `<small>${esc(it.tag)}</small>` : ""}</h4><p>${esc(it.text)}</p></li>`).join("")}</ol>`;
     }
     if (s.subtitle) html += `<h3 class="reader__subtitle" data-say>${esc(s.subtitle)}</h3>`;
-    (s.body || []).forEach((p) => (html += `<p data-say>${esc(p)}</p>`));
+    (s.body || []).forEach((p) => (html += para(p)));
     if (s.closing) html += `<p class="reader__closing" data-say>${esc(s.closing)}</p>`;
+    if (s.sourceUrl) html += `<p class="reader__source"><a href="${esc(s.sourceUrl)}" target="_blank" rel="noopener">${esc(s.sourceLabel || "Original post")} ↗</a></p>`;
     const body = $("#readerBody");
     body.innerHTML = html;
     rScroll.scrollTop = 0;
