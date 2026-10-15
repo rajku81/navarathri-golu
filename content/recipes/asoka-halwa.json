@@ -1,0 +1,45 @@
+{
+  "title": "Asoka Halwa",
+  "titleTamil": "அசோகா அல்வா",
+  "order": 2,
+  "photo": "",
+  "story": [
+    "Many years ago, as a kid, every time we went to our ancestral home in Thiruvarur, I ate Asoka. I still distinctly remember it.",
+    "Later, when I was studying engineering in Thanjavur, I found out what a famous sweet Asoka is down there. Every time I visited Thanjavur and Kumbakonam, there it was. Somewhere along the way, Asoka halwa became one of my favorite South Indian sweets.",
+    "So here is my Asoka halwa."
+  ],
+  "ingredientsTitle": "What you need (serves 4)",
+  "ingredients": [
+    "½ cup (about 100 g) moong dal (paasi paruppu)",
+    "2 tbsp oat flour or almond flour",
+    "1 cup (about 200 g) sugar",
+    "½ cup (about 120 ml) ghee (nei)",
+    "2 tbsp cashews (mundhiri paruppu)",
+    "½ tsp cardamom powder (elakkai podi)",
+    "1 pinch red or orange food color, optional"
+  ],
+  "stepsTitle": "How I make it",
+  "steps": [
+    "Wash the moong dal and pressure cook it with about 1½ cups of water, 4 whistles on medium flame, until nice and mushy.",
+    "Let it cool a little, then mash it well, or better, grind it smooth in the mixer.",
+    "In a pan, melt ¼ cup of the ghee and roast the cashews until golden. Take them out and keep aside.",
+    "In the same ghee, roast the oat or almond flour on a low to medium flame for about a minute, until it smells nutty. Almond flour browns fast, so keep an eye on it.",
+    "Add the ground dal, mix well, and cook for about 2 minutes.",
+    "Once it starts to thicken, add the sugar. It'll loosen up as soon as the sugar goes in, and that's normal. Keep cooking on medium until it thickens again.",
+    "Add the rest of the ghee a tablespoon at a time, stirring. It comes together and rolls around the pan without sticking.",
+    "If you want the color, mix the pinch in a little water and stir it in until even.",
+    "Add the cardamom, the roasted cashews and a last spoon of ghee. Mix, cook a few more minutes, and turn off the flame."
+  ],
+  "tipLabel": "My twist",
+  "tip": "Traditionally Asoka uses wheat flour. I use oat or almond flour instead. It still gives that lovely texture, with a nice nutty note.",
+  "closing": "That's it. Hot Asoka halwa is ready.",
+  "nutrition": {
+    "basis": "Nutrition (estimate, per 100 g)",
+    "calories": "about 396 kcal",
+    "protein": "5.3 g",
+    "carbs": "48 g",
+    "fat": "21 g",
+    "fiber": "1.7 g",
+    "yield": "Makes about 575 g, so 4 servings of about 145 g (about 570 kcal each). Almond flour comes out practically the same."
+  }
+}
