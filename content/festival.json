@@ -3,5 +3,45 @@
   "start": "2026-10-11",
   "end": "2026-10-20",
   "label": "Sunday, October 11 – Tuesday, October 20",
-  "note": "Vijayadasami falls on Tuesday, October 20"
+  "note": "Vijayadasami falls on Tuesday, October 20",
+  "colors": [
+    {
+      "name": "Orange",
+      "hex": "#F28C28"
+    },
+    {
+      "name": "White",
+      "hex": "#FFFFFF"
+    },
+    {
+      "name": "Red",
+      "hex": "#D7263D"
+    },
+    {
+      "name": "Royal blue",
+      "hex": "#2B4CC4"
+    },
+    {
+      "name": "Yellow",
+      "hex": "#F5C518"
+    },
+    {
+      "name": "Green",
+      "hex": "#2E9E4F"
+    },
+    {
+      "name": "Grey",
+      "hex": "#9AA0A6"
+    },
+    {
+      "name": "Purple",
+      "hex": "#7B3FA0"
+    },
+    {
+      "name": "Peacock green",
+      "hex": "#00A693"
+    }
+  ],
+  "playlist": "https://music.youtube.com/playlist?list=PLGS1Bx-egFkE&si=XuHrCuWopAnug2wv",
+  "playlistLabel": "Our Navarathri playlist"
 }

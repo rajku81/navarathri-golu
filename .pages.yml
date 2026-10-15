@@ -172,6 +172,22 @@ content:
         type: string
       - name: note
         type: string
+      - name: colors
+        label: Colour for each night (1 to 9)
+        type: object
+        list: true
+        fields:
+          - name: name
+            type: string
+          - name: hex
+            label: Colour code (e.g. #F5C518)
+            type: string
+      - name: playlist
+        label: Playlist link
+        type: string
+      - name: playlistLabel
+        label: Playlist button text
+        type: string
 
   - name: archana
     label: Meet Archana

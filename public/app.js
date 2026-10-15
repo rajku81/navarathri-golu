@@ -110,9 +110,17 @@
     if (today < start) status = "Coming up";
     else if (n >= 1 && n <= 9) { status = `Tonight is Night ${n}`; litCount = n; }
     else if (today <= end) status = "Today is Vijayadasami";
-    datesEl.innerHTML = `<span class="hero__year">Navarathri ${esc(FESTIVAL.year)}</span>` +
-      `<span class="hero__range">${esc(FESTIVAL.label)}</span>` +
-      (status ? `<span class="hero__status">${esc(status)}</span>` : "");
+    // Colour of the day: one per night, worked out from today's date
+    const color = n >= 1 && n <= 9 && FESTIVAL.colors ? FESTIVAL.colors[n - 1] : null;
+    datesEl.innerHTML =
+      `<span class="hero__row"><span class="hero__year">Navarathri ${esc(FESTIVAL.year)}</span>` +
+      `<span class="hero__range">${esc(FESTIVAL.label)}</span></span>` +
+      (status || color ? `<span class="hero__row">` +
+        (status ? `<span class="hero__status">${esc(status)}</span>` : "") +
+        (color ? `<span class="hero__color">Today’s color is <i style="--swatch:${esc(color.hex)}"></i><b>${esc(color.name)}</b></span>` : "") +
+        `</span>` : "") +
+      (FESTIVAL.playlist ? `<a class="hero__playlist" href="${esc(FESTIVAL.playlist)}" target="_blank" rel="noopener">` +
+        `<span aria-hidden="true">▶</span>${esc(FESTIVAL.playlistLabel || "Our playlist")}</a>` : "");
     datesEl.hidden = false;
   }
   diyas.forEach((d, i) => { if (i < litCount) setTimeout(() => d.classList.add("is-lit"), reduced ? 0 : 500 + i * 320); });
