@@ -292,8 +292,8 @@
     current = i; kind = "post";
     stopSpeaking();
     if (chipObserver) chipObserver.disconnect();
-    reader.style.setProperty("--bg", "#fffaf1");
-    reader.style.setProperty("--ink-accent", "#6d1426");
+    reader.style.setProperty("--bg", "#fffcf6");
+    reader.style.setProperty("--ink-accent", "#0f5257");
     $("#readerCard").hidden = true;
     $("#readerEyebrow").textContent = [fmtDate(p.date), p.author].filter(Boolean).join(" · ");
     $("#readerTitle").textContent = p.title;
