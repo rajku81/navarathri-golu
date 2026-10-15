@@ -86,12 +86,22 @@ const posts = list("content/posts", ".md")
 const festival = JSON.parse(read("content/festival.json"));
 const archana = JSON.parse(read("content/archana.json"));
 
+// ---- Recipes ----
+const recipes = list("content/recipes", ".json")
+  .map((f) => {
+    const r = JSON.parse(read(`content/recipes/${f}`));
+    const clean = (a) => (a || []).map((x) => String(x).trim()).filter(Boolean);
+    return { ...r, slug: slugOf(f), order: Number(r.order) || 99,
+      story: clean(r.story), ingredients: clean(r.ingredients), steps: clean(r.steps) };
+  })
+  .sort((a, b) => a.order - b.order);
+
 // ---- write dist ----
 fs.rmSync(dist, { recursive: true, force: true });
 fs.cpSync(path.join(root, "public"), dist, { recursive: true });
 fs.cpSync(path.join(root, "media"), path.join(dist, "media"), { recursive: true });
 const json = (v) => JSON.stringify(v).replace(/</g, "\\u003c");
 fs.writeFileSync(path.join(dist, "data.js"),
-  `window.BLOG=${json(blog)};\nwindow.STORIES=${json(stories)};\nwindow.PHOTOS=${json(photos)};\nwindow.POSTS=${json(posts)};\nwindow.FESTIVAL=${json(festival)};\nwindow.ARCHANA=${json(archana)};\n`);
+  `window.BLOG=${json(blog)};\nwindow.STORIES=${json(stories)};\nwindow.PHOTOS=${json(photos)};\nwindow.POSTS=${json(posts)};\nwindow.FESTIVAL=${json(festival)};\nwindow.ARCHANA=${json(archana)};\nwindow.RECIPES=${json(recipes)};\n`);
 
-console.log(`Built: ${stories.length} stories, ${Object.keys(photos).length} photo years, ${posts.length} posts`);
+console.log(`Built: ${stories.length} stories, ${recipes.length} recipes, ${Object.keys(photos).length} photo years, ${posts.length} posts`);

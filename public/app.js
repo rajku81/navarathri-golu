@@ -15,7 +15,7 @@
   };
 
   const BLOG = window.BLOG, STORIES = window.STORIES, PHOTOS = window.PHOTOS || {}, POSTS = window.POSTS || [];
-  const FESTIVAL = window.FESTIVAL, ARCHANA = window.ARCHANA;
+  const FESTIVAL = window.FESTIVAL, ARCHANA = window.ARCHANA, RECIPES = window.RECIPES || [];
   const GROUPS = BLOG.blocks.filter((b) => b.type === "goddess");
 
   // Archana's own sentences, shown when the Kalasam or the lamps are tapped.
@@ -445,6 +445,57 @@
     });
   }
 
+  /* ---------------- recipes ---------------- */
+  const recipeList = $("#recipeList");
+  if (!RECIPES.length) {
+    $("#recipes").hidden = true;
+    $$('a[href="#recipes"]').forEach((a) => (a.hidden = true));
+  }
+  RECIPES.forEach((r) => {
+    const n = r.nutrition || {};
+    const facts = [["Calories", n.calories], ["Protein", n.protein], ["Carbs", n.carbs], ["Fat", n.fat], ["Fiber", n.fiber]].filter(([, v]) => v);
+    const card = h("article", { class: "recipe reveal", id: `recipe-${r.slug}`, "aria-labelledby": `recipe-${r.slug}-title` }, `
+      ${r.photo ? `<img class="recipe__photo" src="${r.photo}" alt="${esc(r.title)}" loading="lazy">` : ""}
+      <header class="recipe__head">
+        <h3 class="recipe__title" id="recipe-${r.slug}-title">${esc(r.title)}</h3>
+        ${r.titleTamil ? `<p class="recipe__tamil" lang="ta">${esc(r.titleTamil)}</p>` : ""}
+      </header>
+      <div class="recipe__story">${r.story.map((p) => `<p>${esc(p)}</p>`).join("")}</div>
+      <div class="recipe__grid">
+        <div class="recipe__ingredients">
+          <h4>${esc(r.ingredientsTitle || "What you need")}</h4>
+          <p class="recipe__hint">Tap to tick off as you go</p>
+          <ul>${r.ingredients.map((x, i) => `<li><label><input type="checkbox" data-k="i${i}"><span>${esc(x)}</span></label></li>`).join("")}</ul>
+        </div>
+        <div class="recipe__method">
+          <h4>${esc(r.stepsTitle || "How I make it")}</h4>
+          <ol>${r.steps.map((x, i) => `<li><button type="button" class="recipe__step" data-k="s${i}" aria-pressed="false"><b>${i + 1}</b><span>${esc(x)}</span></button></li>`).join("")}</ol>
+          ${r.tip ? `<aside class="recipe__tip"><p class="recipe__tip-label">${esc(r.tipLabel || "Tip")}</p><p>${esc(r.tip)}</p></aside>` : ""}
+          ${r.closing ? `<p class="recipe__closing">${esc(r.closing)}</p>` : ""}
+          ${facts.length || n.yield ? `<div class="recipe__nutrition">
+            <p class="recipe__nutrition-title">${esc(n.basis || "Nutrition")}</p>
+            ${facts.length ? `<dl>${facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>` : ""}
+            ${n.yield ? `<p class="recipe__yield">${esc(n.yield)}</p>` : ""}
+          </div>` : ""}
+        </div>
+      </div>`);
+    // ticked ingredients and finished steps are remembered on this device only
+    const key = `recipe:${r.slug}`;
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem(key) || "{}"); } catch (e) {}
+    const save = () => { try { localStorage.setItem(key, JSON.stringify(saved)); } catch (e) {} };
+    $$("input[data-k]", card).forEach((c) => {
+      c.checked = !!saved[c.dataset.k];
+      c.addEventListener("change", () => { saved[c.dataset.k] = c.checked; save(); });
+    });
+    $$(".recipe__step", card).forEach((b) => {
+      const set = (on) => { b.setAttribute("aria-pressed", String(on)); b.classList.toggle("is-done", on); };
+      set(!!saved[b.dataset.k]);
+      b.addEventListener("click", () => { saved[b.dataset.k] = !saved[b.dataset.k]; set(saved[b.dataset.k]); save(); });
+    });
+    recipeList.append(card);
+  });
+
   /* ---------------- through the years ---------------- */
   const timeline = $("#timeline"), gallery = $("#gallery");
   const lastYear = Math.max(new Date().getFullYear(), ...Object.keys(PHOTOS).map(Number));
@@ -568,7 +619,7 @@
       if (en.isIntersecting) navLinks.forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === `#${en.target.id}`));
     });
   }, { rootMargin: "-50% 0px -50% 0px" });
-  ["blog", "archana", "posts", "golu", "years"].forEach((id) => sectionObs.observe(document.getElementById(id)));
+  ["blog", "archana", "posts", "golu", "recipes", "years"].forEach((id) => sectionObs.observe(document.getElementById(id)));
 
   observeReveals();
 

@@ -195,3 +195,75 @@ content:
         type: string
       - name: signature
         type: string
+
+  - name: recipes
+    label: Recipes
+    type: collection
+    path: content/recipes
+    format: json
+    filename: "{primary}.json"
+    view:
+      primary: title
+      fields: [title]
+      sort: order
+    fields:
+      - name: title
+        label: Recipe name
+        type: string
+        required: true
+      - name: titleTamil
+        label: Name in Tamil (optional)
+        type: string
+      - name: order
+        label: Position (1 = first)
+        type: number
+      - name: photo
+        label: Photo (optional)
+        type: image
+        options:
+          path: media/recipes
+      - name: story
+        label: Story (one box per paragraph)
+        type: text
+        list: true
+      - name: ingredientsTitle
+        label: Ingredients heading
+        type: string
+        default: What you need
+      - name: ingredients
+        type: string
+        list: true
+      - name: stepsTitle
+        label: Steps heading
+        type: string
+        default: How I make it
+      - name: steps
+        type: text
+        list: true
+      - name: tipLabel
+        label: Tip heading (e.g. Paati's secret)
+        type: string
+      - name: tip
+        type: text
+      - name: closing
+        label: Closing line
+        type: string
+      - name: nutrition
+        type: object
+        fields:
+          - name: basis
+            label: Heading (e.g. Nutrition (estimate, per 100 g))
+            type: string
+          - name: calories
+            type: string
+          - name: protein
+            type: string
+          - name: carbs
+            type: string
+          - name: fat
+            type: string
+          - name: fiber
+            type: string
+          - name: yield
+            label: Makes / servings
+            type: text

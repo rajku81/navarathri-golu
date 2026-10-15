@@ -1,0 +1,46 @@
+{
+  "title": "Sakkarai Pongal (sweet pongal)",
+  "titleTamil": "சர்க்கரை பொங்கல்",
+  "order": 1,
+  "photo": "",
+  "story": [
+    "Growing up in Nanganallur, in Chennai, I used to visit the temples in my hometown all the time. Every visit ended the same way: someone would hand me hot sakkarai pongal as prasadam in a donnai, the little leaf cup, with the ghee just flowing over the sides.",
+    "Later, during my college days in Thanjavur, I visited so many temples down south, in Thanjavur, Kumbakonam and other places. Different temples, same hot sweet pongal, same donnai, same ghee.",
+    "Even today, every time I have it, it brings back fond memories of growing up in South India. So here is my recipe for sakkarai pongal."
+  ],
+  "ingredientsTitle": "What you need",
+  "ingredients": [
+    "300 g raw rice (pachai arisi)",
+    "150 g moong dal (paasi paruppu)",
+    "900 g jaggery (vellam)",
+    "50 g ghee (nei)",
+    "About 15 pitted dates (pericham pazham)",
+    "Cardamom (elakkai)",
+    "1 pinch edible camphor (pachai karpooram), only the edible kind, not aarti camphor",
+    "A little salt",
+    "About 30 g cashews (mundhiri paruppu)",
+    "About 30 g raisins (ular thiratchai)"
+  ],
+  "stepsTitle": "How I make it",
+  "steps": [
+    "Pressure cook the rice separately, 1 part rice to 4 parts water.",
+    "Pressure cook the moong dal with the pitted dates, again 1 part dal to 4 parts water. Both should come out really soft.",
+    "Roughly chop the jaggery, put it in a large pan with 1 cup of water, and stir over medium flame until it melts and starts to thicken, about 5 minutes.",
+    "Add the rice and dal a little at a time, alternating, until it's all in. Keep mixing for 5 to 7 minutes.",
+    "Add about three-quarters of the ghee and mix well.",
+    "Add the cardamom, a pinch of camphor and a little salt. Make sure the dates are fully mashed in.",
+    "In a small pan, heat the rest of the ghee and roast the cashews to a mild gold. Add the raisins, and once they puff up, pour it all over the pongal and mix well."
+  ],
+  "tipLabel": "Paati's secret",
+  "tip": "The dates are what give this pongal its color and its distinct taste. That's a trick I learned from my grandmother.",
+  "closing": "That's it. The sakkarai pongal is ready.",
+  "nutrition": {
+    "basis": "Nutrition (estimate, per 100 g)",
+    "calories": "about 198 kcal",
+    "protein": "2.2 g",
+    "carbs": "44 g",
+    "fat": "2 g",
+    "fiber": "1.2 g",
+    "yield": "Makes about 3.4 kg, roughly 34 servings of 100 g or about 22 prasadam bowls of 150 g (about 300 kcal each)."
+  }
+}
