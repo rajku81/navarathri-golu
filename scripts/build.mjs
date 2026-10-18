@@ -118,6 +118,6 @@ fs.cpSync(path.join(root, "public"), dist, { recursive: true });
 fs.cpSync(path.join(root, "media"), path.join(dist, "media"), { recursive: true });
 const json = (v) => JSON.stringify(v).replace(/</g, "\\u003c");
 fs.writeFileSync(path.join(dist, "data.js"),
-  `window.BLOG=${json(blog)};\nwindow.STORIES=${json(stories)};\nwindow.PHOTOS=${json(photos)};\nwindow.POSTS=${json(posts)};\nwindow.FESTIVAL=${json(festival)};\nwindow.ARCHANA=${json(archana)};\nwindow.RECIPES=${json(recipes)};\nwindow.RECIPES_INTRO=${json(recipesIntro)};\nwindow.TESTIMONIALS=${json(testimonials)};\nwindow.UPDATE=${json(update && update.show !== false ? update : null)};\n`);
+  `window.BLOG=${json(blog)};\nwindow.STORIES=${json(stories)};\nwindow.PHOTOS=${json(photos)};\nwindow.POSTS=${json(posts)};\nwindow.FESTIVAL=${json(festival)};\nwindow.ARCHANA=${json(archana)};\nwindow.RECIPES=${json(recipes)};\nwindow.RECIPES_INTRO=${json(recipesIntro)};\nwindow.TESTIMONIALS=${json(testimonials)};\nwindow.UPDATE=${json(update && update.show !== false ? (({ asideDraft, ...u }) => u)(update) : null)};\n`);
 
 console.log(`Built: ${stories.length} stories, ${recipes.length} recipes, ${testimonials.length} testimonials, ${Object.keys(photos).length} photo years, ${posts.length} posts`);
