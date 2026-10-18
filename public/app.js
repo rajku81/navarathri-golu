@@ -435,6 +435,48 @@
     speakFrom([$("#readerTitle"), ...$$("[data-say]", reader)]);
   });
 
+  /* ---------------- this year's update ---------------- */
+  const UPDATE = window.UPDATE;
+  if (UPDATE && (UPDATE.paragraphs || []).length) {
+    const sec = $("#update");
+    $("#updateEyebrow").textContent = UPDATE.eyebrow || "";
+    $("#updateTitle").textContent = UPDATE.title;
+    const d = UPDATE.date ? new Date(UPDATE.date + "T12:00:00").toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) : "";
+    $("#updateByline").textContent = [UPDATE.author && `by ${UPDATE.author}`, d].filter(Boolean).join(" · ");
+    const pics = (UPDATE.photos || []).filter((p) => p.image).map((p) => ({ src: p.image, alt: p.caption || "" }));
+    $("#updatePhotos").innerHTML = pics.map((p, i) =>
+      `<button class="update__photo" data-i="${i}" aria-label="Open photo: ${esc(p.alt)}"><img src="${p.src}" alt="${esc(p.alt)}" loading="lazy">${p.alt ? `<span>${esc(p.alt)}</span>` : ""}</button>`).join("");
+    $$(".update__photo", sec).forEach((b) => b.addEventListener("click", () => lightbox.open(pics, +b.dataset.i)));
+    const body = $("#updateBody");
+    body.innerHTML = UPDATE.paragraphs.map((p) => `<p>${esc(p)}</p>`).join("");
+    const a = UPDATE.aside;
+    if (a && (a.paragraphs || []).length) {
+      const aside = $("#updateAside");
+      aside.innerHTML = `<p class="update__aside-title">${esc(a.title || "")}</p>` + a.paragraphs.map((p) => `<p>${esc(p)}</p>`).join("") +
+        (a.author ? `<p class="update__aside-sig">${esc(a.author)}</p>` : "");
+    }
+    // Show the first paragraph; "Keep reading" opens the rest (and Arjun's note).
+    const more = $("#updateMore");
+    const collapsible = UPDATE.paragraphs.length > 1 || (a && a.paragraphs && a.paragraphs.length);
+    const setOpen = (open) => {
+      body.classList.toggle("is-collapsed", !open);
+      $("#updateAside").hidden = !open || !(a && a.paragraphs && a.paragraphs.length);
+      more.setAttribute("aria-expanded", String(open));
+      more.textContent = open ? "Show less" : "Keep reading";
+    };
+    if (collapsible) {
+      setOpen(false);
+      more.addEventListener("click", () => {
+        const open = more.getAttribute("aria-expanded") !== "true";
+        setOpen(open);
+        if (!open) sec.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+      });
+    } else more.hidden = true;
+    sec.hidden = false;
+    $("#heroUpdateBtn").hidden = false;
+    $("#navUpdate").hidden = false;
+  }
+
   /* ---------------- meet archana ---------------- */
   if (ARCHANA) {
     $("#archanaTitle").textContent = ARCHANA.title;
@@ -693,7 +735,7 @@
       if (en.isIntersecting) navLinks.forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === `#${en.target.id}`));
     });
   }, { rootMargin: "-50% 0px -50% 0px" });
-  ["blog", "archana", "posts", "golu", "recipes", "years"].forEach((id) => sectionObs.observe(document.getElementById(id)));
+  ["update", "blog", "archana", "posts", "golu", "recipes", "years"].forEach((id) => sectionObs.observe(document.getElementById(id)));
 
   observeReveals();
 

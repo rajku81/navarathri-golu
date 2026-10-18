@@ -109,12 +109,15 @@ const testimonials = list("content/testimonials", ".json")
   .map((t) => ({ name: t.name, message: t.message, publishedAt: t.publishedAt || t.submittedAt, featured: !!t.featured }))
   .sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt)));
 
+// ---- This year's update (shown near the top of the home page) ----
+const update = fs.existsSync(path.join(root, "content/update.json")) ? JSON.parse(read("content/update.json")) : null;
+
 // ---- write dist ----
 fs.rmSync(dist, { recursive: true, force: true });
 fs.cpSync(path.join(root, "public"), dist, { recursive: true });
 fs.cpSync(path.join(root, "media"), path.join(dist, "media"), { recursive: true });
 const json = (v) => JSON.stringify(v).replace(/</g, "\\u003c");
 fs.writeFileSync(path.join(dist, "data.js"),
-  `window.BLOG=${json(blog)};\nwindow.STORIES=${json(stories)};\nwindow.PHOTOS=${json(photos)};\nwindow.POSTS=${json(posts)};\nwindow.FESTIVAL=${json(festival)};\nwindow.ARCHANA=${json(archana)};\nwindow.RECIPES=${json(recipes)};\nwindow.RECIPES_INTRO=${json(recipesIntro)};\nwindow.TESTIMONIALS=${json(testimonials)};\n`);
+  `window.BLOG=${json(blog)};\nwindow.STORIES=${json(stories)};\nwindow.PHOTOS=${json(photos)};\nwindow.POSTS=${json(posts)};\nwindow.FESTIVAL=${json(festival)};\nwindow.ARCHANA=${json(archana)};\nwindow.RECIPES=${json(recipes)};\nwindow.RECIPES_INTRO=${json(recipesIntro)};\nwindow.TESTIMONIALS=${json(testimonials)};\nwindow.UPDATE=${json(update && update.show !== false ? update : null)};\n`);
 
 console.log(`Built: ${stories.length} stories, ${recipes.length} recipes, ${testimonials.length} testimonials, ${Object.keys(photos).length} photo years, ${posts.length} posts`);

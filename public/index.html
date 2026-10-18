@@ -15,6 +15,7 @@
   <nav class="topnav" id="topnav" aria-label="Sections">
     <a href="#hero" class="topnav__home">Navarathri</a>
     <div class="topnav__links">
+      <a href="#update" id="navUpdate" hidden>2026 Update</a>
       <a href="#blog">Archana’s Blog</a>
       <a href="#archana">Meet Archana</a>
       <a href="#posts">Blog Posts</a>
@@ -35,6 +36,7 @@
       <ol class="diyas" id="diyas" aria-label="The nine nights"></ol>
       <p class="diyas__caption" id="diyaCaption" aria-live="polite">&nbsp;</p>
       <div class="hero__cta">
+        <a class="btn btn--gold" href="#update" id="heroUpdateBtn" hidden>What’s new this year</a>
         <a class="btn btn--gold" href="#blog">Read Archana’s blog</a>
         <a class="btn btn--ghost" href="#golu">Visit the Golu</a>
       </div>
@@ -42,6 +44,21 @@
   </header>
 
   <main>
+    <!-- ============ THIS YEAR'S UPDATE ============ -->
+    <section class="update" id="update" aria-labelledby="updateTitle" hidden>
+      <article class="update__card">
+        <header class="update__head">
+          <p class="eyebrow" id="updateEyebrow"></p>
+          <h2 class="update__title" id="updateTitle"></h2>
+          <p class="update__byline" id="updateByline"></p>
+        </header>
+        <div class="update__photos" id="updatePhotos"></div>
+        <div class="update__body" id="updateBody"></div>
+        <button class="btn btn--small update__more" id="updateMore" aria-expanded="false" aria-controls="updateBody">Keep reading</button>
+        <aside class="update__aside" id="updateAside" hidden></aside>
+      </article>
+    </section>
+
     <!-- ============ BLOG ============ -->
     <section class="blog" id="blog" aria-labelledby="blogTitle">
       <div class="blog__head">

@@ -328,3 +328,45 @@ content:
       - name: publishedAt
         label: Published (date shown on the site)
         type: string
+
+  - name: update
+    label: This year's update (home page)
+    type: file
+    path: content/update.json
+    format: json
+    fields:
+      - name: show
+        label: Show on the home page
+        type: boolean
+      - name: eyebrow
+        label: Small heading
+        type: string
+      - name: title
+        type: string
+      - name: author
+        type: string
+      - name: date
+        label: Date (YYYY-MM-DD)
+        type: string
+      - name: paragraphs
+        type: text
+        list: true
+      - name: photos
+        type: object
+        list: true
+        fields:
+          - name: image
+            type: image
+          - name: caption
+            type: string
+      - name: aside
+        label: Side note
+        type: object
+        fields:
+          - name: title
+            type: string
+          - name: author
+            type: string
+          - name: paragraphs
+            type: text
+            list: true
