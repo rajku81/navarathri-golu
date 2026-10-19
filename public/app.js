@@ -477,6 +477,71 @@
     $("#navUpdate").hidden = false;
   }
 
+  /* ---------------- music night ---------------- */
+  const CONCERT = window.CONCERT;
+  if (CONCERT && (CONCERT.videos || []).length) {
+    const sec = $("#concert");
+    $("#concertEyebrow").textContent = CONCERT.eyebrow || "";
+    $("#concertTitle").textContent = CONCERT.title || "";
+    $("#concertSub").textContent = CONCERT.subtitle || "";
+    const vids = CONCERT.videos.filter((v) => v.id);
+    const thumb = (id, q = "mqdefault") => `https://i.ytimg.com/vi/${id}/${q}.jpg`;
+    const player = $("#concertPlayer"), now = $("#concertNow");
+    let current = 0;
+    // Show a still with a play button; load YouTube only when someone presses play.
+    const showPoster = (i) => {
+      const v = vids[i];
+      player.innerHTML = `<button class="concert__poster" aria-label="Play ${esc(v.title)}">
+        <img src="${thumb(v.id, "hqdefault")}" alt=""><span class="concert__play" aria-hidden="true"></span></button>`;
+      $(".concert__poster", player).addEventListener("click", () => play(i));
+    };
+    const play = (i) => {
+      current = i;
+      const v = vids[i];
+      const list = CONCERT.playlistId ? `&list=${encodeURIComponent(CONCERT.playlistId)}&index=${i + 1}` : "";
+      player.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1&rel=0${list}" title="${esc(v.title)}"
+        allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe>`;
+      mark(i);
+    };
+    const mark = (i) => {
+      now.innerHTML = `<span>Now showing</span> ${esc(vids[i].title)} <small>${i + 1} / ${vids.length}</small>`;
+      $$(".concert__song", sec).forEach((b, k) => b.classList.toggle("is-current", k === i));
+    };
+    const songs = $("#concertSongs");
+    const LIMIT = 8;
+    songs.innerHTML = vids.map((v, i) => `<li${i >= LIMIT ? ' class="is-extra"' : ""}><button class="concert__song" data-i="${i}">
+      <span class="concert__thumb"><img src="${thumb(v.id)}" alt="" loading="lazy"><b>${i + 1}</b></span>
+      <span class="concert__name">${esc(v.title)}</span></button></li>`).join("");
+    $$(".concert__song", songs).forEach((b) => b.addEventListener("click", () => {
+      play(+b.dataset.i);
+      player.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "center" });
+    }));
+    if (vids.length > LIMIT) {
+      const all = $("#concertAll");
+      all.hidden = false;
+      all.textContent = `Show all ${vids.length} songs`;
+      songs.classList.add("is-trimmed");
+      all.addEventListener("click", () => {
+        const open = songs.classList.toggle("is-trimmed") === false;
+        all.textContent = open ? "Show fewer" : `Show all ${vids.length} songs`;
+      });
+    }
+    const yt = $("#concertYT");
+    if (CONCERT.playlistUrl) yt.href = CONCERT.playlistUrl; else yt.hidden = true;
+    showPoster(0); mark(0);
+
+    const pics = (CONCERT.photos || []).filter((p) => p.image).map((p) => ({ src: p.image, alt: p.caption || CONCERT.title || "" }));
+    if (pics.length) {
+      $("#concertPhotosTitle").hidden = false;
+      $("#concertPhotos").innerHTML = pics.map((p, i) =>
+        `<button class="concert__photo" data-i="${i}" aria-label="Open photo ${i + 1} of ${pics.length}"><img src="${p.src}" alt="" loading="lazy"></button>`).join("");
+      $$(".concert__photo", sec).forEach((b) => b.addEventListener("click", () => lightbox.open(pics, +b.dataset.i)));
+    }
+    if (CONCERT.albumUrl) { const al = $("#concertAlbum"); al.href = CONCERT.albumUrl; al.hidden = false; }
+    sec.hidden = false;
+    $("#navConcert").hidden = false;
+  }
+
   /* ---------------- meet archana ---------------- */
   if (ARCHANA) {
     $("#archanaTitle").textContent = ARCHANA.title;
@@ -735,7 +800,7 @@
       if (en.isIntersecting) navLinks.forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === `#${en.target.id}`));
     });
   }, { rootMargin: "-50% 0px -50% 0px" });
-  ["update", "blog", "archana", "posts", "golu", "recipes", "years"].forEach((id) => sectionObs.observe(document.getElementById(id)));
+  ["update", "concert", "blog", "archana", "posts", "golu", "recipes", "years"].forEach((id) => sectionObs.observe(document.getElementById(id)));
 
   observeReveals();
 

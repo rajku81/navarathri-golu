@@ -370,3 +370,49 @@ content:
           - name: paragraphs
             type: text
             list: true
+
+  - name: concert
+    label: Music Night (home page)
+    type: file
+    path: content/concert.json
+    format: json
+    fields:
+      - name: show
+        label: Show on the home page
+        type: boolean
+      - name: eyebrow
+        label: Small heading
+        type: string
+      - name: title
+        type: string
+      - name: subtitle
+        type: string
+      - name: playlistUrl
+        label: YouTube playlist link
+        type: string
+      - name: playlistId
+        label: Playlist ID (the part after list=)
+        type: string
+      - name: videos
+        label: Songs (YouTube video ID + title)
+        type: object
+        list: true
+        fields:
+          - name: id
+            label: Video ID
+            type: string
+          - name: title
+            type: string
+      - name: albumUrl
+        label: Photo album link
+        type: string
+      - name: photos
+        type: object
+        list: true
+        fields:
+          - name: image
+            type: image
+            options:
+              path: media/concert-2026
+          - name: caption
+            type: string

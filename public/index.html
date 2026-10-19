@@ -16,6 +16,7 @@
     <a href="#hero" class="topnav__home">Navarathri</a>
     <div class="topnav__links">
       <a href="#update" id="navUpdate" hidden>2026 Update</a>
+      <a href="#concert" id="navConcert" hidden>Music Night</a>
       <a href="#blog">Archana’s Blog</a>
       <a href="#archana">Meet Archana</a>
       <a href="#posts">Blog Posts</a>
@@ -57,6 +58,29 @@
         <button class="btn btn--small update__more" id="updateMore" aria-expanded="false" aria-controls="updateBody">Keep reading</button>
         <aside class="update__aside" id="updateAside" hidden></aside>
       </article>
+    </section>
+
+    <!-- ============ MUSIC NIGHT (concert videos + photos) ============ -->
+    <section class="concert" id="concert" aria-labelledby="concertTitle" hidden>
+      <div class="section-head section-head--light">
+        <p class="eyebrow" id="concertEyebrow"></p>
+        <h2 id="concertTitle"></h2>
+        <p class="hint" id="concertSub"></p>
+      </div>
+      <div class="concert__wrap">
+        <div class="concert__player" id="concertPlayer"></div>
+        <p class="concert__now" id="concertNow" aria-live="polite"></p>
+        <ol class="concert__songs" id="concertSongs"></ol>
+        <div class="concert__actions">
+          <button class="btn btn--ghost" id="concertAll" hidden>Show all songs</button>
+          <a class="btn btn--gold" id="concertYT" target="_blank" rel="noopener">▶ Open the playlist on YouTube</a>
+        </div>
+        <h3 class="concert__photos-title" id="concertPhotosTitle" hidden>Photos from the evening</h3>
+        <div class="concert__photos" id="concertPhotos"></div>
+        <div class="concert__actions">
+          <a class="btn btn--ghost" id="concertAlbum" target="_blank" rel="noopener" hidden>View the full album</a>
+        </div>
+      </div>
     </section>
 
     <!-- ============ BLOG ============ -->
